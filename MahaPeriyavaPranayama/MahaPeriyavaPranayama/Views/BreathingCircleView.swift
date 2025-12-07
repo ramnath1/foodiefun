@@ -52,8 +52,8 @@ struct BreathingCircleView: View {
                 .stroke(
                     LinearGradient(
                         gradient: Gradient(colors: [
-                            Color.white.opacity(0.6),
-                            Color.white.opacity(0.2)
+                            Color(red: 0.3, green: 0.3, blue: 0.4).opacity(0.6),
+                            Color(red: 0.3, green: 0.3, blue: 0.4).opacity(0.2)
                         ]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
@@ -67,12 +67,12 @@ struct BreathingCircleView: View {
             VStack(spacing: 8) {
                 Image(systemName: phaseIcon)
                     .font(.system(size: 40))
-                    .foregroundColor(.white.opacity(0.9))
+                    .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.3).opacity(0.9))
                 
                 if viewModel.currentPhase != .ready {
                     Text("\(Int(ceil(viewModel.phaseTimeRemaining)))")
                         .font(.system(size: 28, weight: .light, design: .rounded))
-                        .foregroundColor(.white.opacity(0.8))
+                        .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.3).opacity(0.8))
                 }
             }
             .scaleEffect(viewModel.circleScale * 0.9)
@@ -110,7 +110,7 @@ struct BreathingCircleView: View {
 struct BreathingCircleView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.black
+            Color(red: 0.98, green: 0.97, blue: 0.95)
             BreathingCircleView(viewModel: BreathingViewModel())
         }
     }
