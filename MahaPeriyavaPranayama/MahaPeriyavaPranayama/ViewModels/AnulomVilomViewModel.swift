@@ -52,9 +52,6 @@ class AnulomVilomViewModel: ObservableObject {
     private var phaseStartTime: Date?
     private var cancellables = Set<AnyCancellable>()
     
-    // Half-cycle tracking (inhale-exhale pair)
-    private var halfCycleCount = 0
-    
     var currentPhaseText: String {
         return currentPhase.rawValue
     }
@@ -174,7 +171,6 @@ class AnulomVilomViewModel: ObservableObject {
     func reset() {
         stopSession()
         cycleCount = 0
-        halfCycleCount = 0
         totalSessionTime = 0
         currentBreathDuration = 0
         breathRecords.removeAll()
@@ -210,11 +206,7 @@ class AnulomVilomViewModel: ObservableObject {
             // After inhaling left, exhale through right
             transitionToPhase(.exhaleRight)
             // Completing exhale right completes one full cycle
-            halfCycleCount += 1
-            if halfCycleCount >= 2 {
-                cycleCount += 1
-                halfCycleCount = 0
-            }
+            cycleCount += 1
         default:
             break
         }
