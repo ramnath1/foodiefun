@@ -9,7 +9,7 @@ enum BreathingPhase: String {
     case inhale = "Inhale"
     case hold = "Hold"
     case exhale = "Exhale"
-    case holdEmpty = "Hold"
+    case holdEmpty = "HoldEmpty"
     case ready = "Ready"
 }
 
