@@ -34,10 +34,10 @@ struct ContentView: View {
                 
                 // Stats row
                 HStack(spacing: 30) {
-                    StatView(title: "Cycles", value: "\(viewModel.cycleCount)")
-                    StatView(title: "Time", value: viewModel.timerText)
+                    SessionStatView(title: "Cycles", value: "\(viewModel.cycleCount)")
+                    SessionStatView(title: "Time", value: viewModel.timerText)
                     if viewModel.isActive {
-                        StatView(title: "Breath", value: viewModel.currentBreathText)
+                        SessionStatView(title: "Breath", value: viewModel.currentBreathText)
                     }
                 }
                 .padding(.horizontal)
@@ -153,7 +153,7 @@ struct ContentView: View {
     }
 }
 
-struct StatView: View {
+struct SessionStatView: View {
     let title: String
     let value: String
     
